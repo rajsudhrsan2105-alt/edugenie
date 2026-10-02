@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduGenie - AI Learning Assistant</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">&#128218;</span>
+                <h1>EduGenie</h1>
+            </div>
+            <p class="subtitle">Google Gemini Powered Learning Assistant</p>
+        </header>
+
+        <!-- Feature Navigation -->
+        <nav class="feature-nav">
+            <button class="feature-btn active" data-feature="qa">
+                <span class="btn-icon">&#10067;</span>
+                <span>Ask Question</span>
+            </button>
+            <button class="feature-btn" data-feature="explain">
+                <span class="btn-icon">&#128214;</span>
+                <span>Explain Topic</span>
+            </button>
+            <button class="feature-btn" data-feature="quiz">
+                <span class="btn-icon">&#9998;</span>
+                <span>Generate Quiz</span>
+            </button>
+            <button class="feature-btn" data-feature="summarize">
+                <span class="btn-icon">&#128203;</span>
+                <span>Summarize</span>
+            </button>
+            <button class="feature-btn" data-feature="learn">
+                <span class="btn-icon">&#127919;</span>
+                <span>Learning Path</span>
+            </button>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Q&A Section -->
+            <section id="qa-section" class="feature-section active">
+                <div class="card">
+                    <h2>Ask a Question</h2>
+                    <p class="hint">Type any academic or educational question</p>
+                    <div class="input-group">
+                        <input type="text" id="qa-input" placeholder="e.g., What is the largest ocean?" class="text-input">
+                        <button id="qa-btn" class="submit-btn">Ask EduGenie</button>
+                    </div>
+                    <div id="qa-result" class="result-card hidden">
+                        <div class="result-header">
+                            <span class="result-icon">&#129504;</span>
+                            <h3>Answer</h3>
+                        </div>
+                        <div id="qa-output" class="result-content"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Explain Section -->
+            <section id="explain-section" class="feature-section">
+                <div class="card">
+                    <h2>Explain a Topic</h2>
+                    <p class="hint">Get a simple explanation of any topic</p>
+                    <div class="input-group">
+                        <input type="text" id="explain-input" placeholder="e.g., Pythagoras Theorem" class="text-input">
+                        <button id="explain-btn" class="submit-btn">Explain Topic</button>
+                    </div>
+                    <div id="explain-result" class="result-card hidden">
+                        <div class="result-header">
+                            <span class="result-icon">&#128214;</span>
+                            <h3>Explanation</h3>
+                        </div>
+                        <div id="explain-output" class="result-content"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quiz Section -->
+            <section id="quiz-section" class="feature-section">
+                <div class="card">
+                    <h2>Generate Quiz</h2>
+                    <p class="hint">Enter a topic or passage to generate 3 MCQs</p>
+                    <div class="input-group">
+                        <input type="text" id="quiz-input" placeholder="e.g., Photosynthesis" class="text-input">
+                        <button id="quiz-btn" class="submit-btn">Generate Quiz</button>
+                    </div>
+                    <div id="quiz-result" class="hidden">
+                        <div id="quiz-output"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Summarize Section -->
+            <section id="summarize-section" class="feature-section">
+                <div class="card">
+                    <h2>Summarize Text</h2>
+                    <p class="hint">Paste a long educational paragraph to get a concise summary</p>
+                    <div class="input-group">
+                        <textarea id="summarize-input" placeholder="Paste your long text here..." class="text-input textarea"></textarea>
+                        <button id="summarize-btn" class="submit-btn">Summarize</button>
+                    </div>
+                    <div id="summarize-result" class="result-card hidden">
+                        <div class="result-header">
+                            <span class="result-icon">&#128203;</span>
+                            <h3>Summary</h3>
+                        </div>
+                        <div id="summarize-output" class="result-content"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Learning Path Section -->
+            <section id="learn-section" class="feature-section">
+                <div class="card">
+                    <h2>Learning Path</h2>
+                    <p class="hint">Get a personalized roadmap from beginner to advanced</p>
+                    <div class="input-group">
+                        <input type="text" id="learn-input" placeholder="e.g., Python Programming" class="text-input">
+                        <button id="learn-btn" class="submit-btn">Create Learning Path</button>
+                    </div>
+                    <div id="learn-result" class="result-card hidden">
+                        <div class="result-header">
+                            <span class="result-icon">&#127919;</span>
+                            <h3>Your Learning Roadmap</h3>
+                        </div>
+                        <div id="learn-output" class="result-content"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Loading Indicator -->
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>EduGenie is thinking...</p>
+        </div>
+
+        <!-- Error Message -->
+        <div id="error-msg" class="error-msg hidden"></div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Powered by Google Gemini API | Built with FastAPI</p>
+        </footer>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
